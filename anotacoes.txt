@@ -1,0 +1,28 @@
+CONFIGURAÇÃO DO PROJETO 
+
+1 - yarn add express
+2 - yarn add typescript -D
+3 - yarn tsc --init
+4 - yarn add @types/express -D
+
+4 - Agora, criar pasta src e criar arquivo server.ts
+
+5 - No arquivo tsconfig.json, fazer da seguinte forma:
+
+"rootDir": "./src", 
+"outDir": "./dist",  --diretório que gera o build do projeto em javascript
+
+6 - yarn tsc // assim gerará o arquivo de build
+
+7 - Importar o express no arquivo server.ts
+
+Observação: sempre que dar problemas de tipos na importação de módulos, usar "yarn add @types/MODULO -D"
+
+8 - Para nao ter que ficar sempre dando yarn tsc, remova a pasta dist, e no arquivo package.json coloque dentro de scripts: "build": "tsc", e instale o pacote:
+
+yarn add ts-node-dev -D // executa em modo de desenvolvimento a parte de TS
+
+9 - No mesmo arquivo do package.json, adicionar em baixo do build: "dev:server": ""dev:server": "ts-node-dev --transpile-only --ignore node_modules src/server.ts"
+// transpile-only (na conversão de desenvolvimento, desativa se o código está correto, se os tipos estão batendo, etc.) -- ignora os modulos
+
+Para executar o projeto AGORA: yarn dev:server
