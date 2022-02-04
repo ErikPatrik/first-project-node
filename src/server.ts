@@ -1,13 +1,12 @@
-import express from "express";
+import express from 'express';
+import routes from './routes';
 
 const app = express();
 
-app.get("/", (request, response) => {
-    return response.json({
-        message: "Olá gente",
-    });
-});
+// Aplicação entenda o formato json nas requisições
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333, () => {
-    console.log("Server started! Port: 3333!");
+    console.log('Server started! Port: 3333!');
 });
