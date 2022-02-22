@@ -1,4 +1,4 @@
-CONFIGURAÇÃO DO PROJETO 
+CONFIGURAÇÃO DO PROJETO
 
 1 - yarn add express
 2 - yarn add typescript -D
@@ -9,7 +9,7 @@ CONFIGURAÇÃO DO PROJETO
 
 5 - No arquivo tsconfig.json, fazer da seguinte forma:
 
-"rootDir": "./src", 
+"rootDir": "./src",
 "outDir": "./dist",  --diretório que gera o build do projeto em javascript
 
 6 - yarn tsc // assim gerará o arquivo de build
@@ -26,3 +26,74 @@ yarn add ts-node-dev -D // executa em modo de desenvolvimento a parte de TS
 // transpile-only (na conversão de desenvolvimento, desativa se o código está correto, se os tipos estão batendo, etc.) -- ignora os modulos
 
 Para executar o projeto AGORA: yarn dev:server
+
+Instalar o plugin Editorconfig, clicar com o botão direito e Generate .editconfig, conforme abaixo, para assim, padrozinar o código fonte do projeto
+
+end_of_line = lf
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+Configurar o ESLINT é importante também
+
+- yarn add eslint -D
+- yarn eslint --init
+- 3 opção, forçar
+- 1 opção, Javascript modules, devido ao Typescript
+- None of theses (se for backend)
+- Sim se o projeto usa Typescript
+- Espaço e seleciona o Node
+- Usar um projeto: Standard (nao usa o ponto virgula) / Airbnb (usa ponto e virgula no final mas usa aspas simples)
+- Formato Json
+- Se usar Yarn (usar não) , se NPM sim
+
+Copiar código exemplo (remover eslint já instalado): yarn add -D @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest @typescript-eslint/parser@latest
+
+
+Instalar o prettier
+
+-  yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+
+--------
+
+3 tipos de Abstração em banco de dados:
+
+- Lidar com o driver nativo
+- Lidar com o query builder (knex.js)
+- Lidar com o ORM
+
+Object Relational Mapping (ORM): mapear registros da tabela do banco de dados, com objetos no Javascript. Ou seja, criamos models no projeto, sempre que criar, excluir, editar, sofre alterações no banco de dados.
+
+Conhecidos:
+
+Sequelize para javascript
+TypeORM: Utilizado para Typescript
+
+--------
+
+Docker: ajuda a controlar serviços externos que não seja o código do aplicação
+
+- Criação de ambientes isolados(container) - como banco de dados, serviços externos
+- Fica armazenado em um subsistema do computador, não mexendo nos arquivos do sistema operacional ou códigos
+- Containers expõe portas para comunicação
+
+Principais conceitos do Docker
+
+- imagem: serviço, ferramentas, tecnologias disponível do docker que podem ser colocados em Containers
+- containers: istância de uma imagem
+- Docker Registry (Docker hub): onde fica as imagens do docker
+-- Docker file: receita para ser criado uma própria imagem, isto é, como é a receita pro nosso código funcionar em um ambiente/servidor do 0
+
+- Como criar um container docker do Postgres: docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+- Ver ID do docker - docker -ps a
+- Iniciar docker: docker start ID/nome
+- Parar docker: docker stop ID/nome
+
+_____________
+
+Criar arquivo ormconfig.json e:
+
+- Instalar 
