@@ -96,4 +96,25 @@ _____________
 
 Criar arquivo ormconfig.json e:
 
-- Instalar 
+- Instalar typeorm e drive do postgres: yarn add typeorm pg
+- Depois, criar uma pasta database em src, arquivo index.ts, importar o createConnection do typeorm e importar a database no arquivo server.ts
+
+
+Migrations: controlam alterações no banco de dados, arquivo de instruções que queremos fazer no banco de dados,
+
+Criar uma pasta migrations dentro de database, lembrar de no arquivo ormconfig.json, criar a pasta de migrations
+Arquivo pra criar de uma tabela: yarn typeorm migration:create -n CreateAppointments
+
+Depois executar: yarn typeorm migration:run
+// pra criar as parada no banco
+
+Só é possível alterar uma migration, se ela não foi enviado antes pro controle de versão, caso contrário precisa criar uma nova migration
+yarn typeorm migration:revert
+yarn typeorm migration:show
+
+    "experimentalDecorators": true,                   /* Enable experimental support for TC39 stage 2 draft decorators. */
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+
+Podemos usar decorators no typescript, usando @,
+
