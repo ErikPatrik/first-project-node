@@ -82,13 +82,13 @@ Docker: ajuda a controlar serviços externos que não seja o código do aplicaç
 
 Principais conceitos do Docker
 
-- imagem: serviço, ferramentas, tecnologias disponível do docker que podem ser colocados em Containers
-- containers: istância de uma imagem
+- imagem: serviço, ferramentas, tecnolognias disponível do docker que podem ser colocados em Containers
+- containers: instância de uma imagem
 - Docker Registry (Docker hub): onde fica as imagens do docker
 -- Docker file: receita para ser criado uma própria imagem, isto é, como é a receita pro nosso código funcionar em um ambiente/servidor do 0
 
 - Como criar um container docker do Postgres: docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
-- Ver ID do docker - docker -ps a
+- Ver ID do docker: docker ps
 - Iniciar docker: docker start ID/nome
 - Parar docker: docker stop ID/nome
 
@@ -118,3 +118,30 @@ yarn typeorm migration:show
 
 Podemos usar decorators no typescript, usando @,
 
+
+-- Criando uma nova migration: yarn typeorm migration:create -n CreateUsers
+-- Vai na migrations e cria as tabelas
+-- Pra executar: yarn typeorm migration:run
+-- Criar model
+-- Criar service
+
+Pra criptografia de senha: yarn add bcryptjs
+Pro Typescript: yarn add -D @types/bcryptjs
+
+
+
+JWT -> busca no banco os acessos, se achar, gerar um token JWT, o token é separado por
+ pontos.
+ - Headers,
+ - Payload, dados adicionais
+ - Assinatura
+
+
+Instalar pacote JWT: yarn add jsonwebtoken
+
+middlware de autenticação: evita que usuários não autenticados acessem determinadas rotas
+o token vai pelo cabeçalho da requisição
+
+middlware é uma função que recebe um request, response e chama o next,
+ou seja, caso o usuário esteja validado, chama o next, pra que aplicação siga para o restante das rotas,
+se der erro, ou não chamar a função, next, o sistema para nessa função

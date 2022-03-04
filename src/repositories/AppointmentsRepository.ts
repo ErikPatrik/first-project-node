@@ -1,6 +1,8 @@
 import Appointment from '../models/Appointments';
 import { EntityRepository, Repository } from 'typeorm';
 
+// Repositories são para criar métodos personalizados, que não são nativos do TypeORM
+
 // Entidade passando o model
 @EntityRepository(Appointment)
 class AppointmentsRepository extends Repository<Appointment> {
