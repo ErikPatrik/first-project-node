@@ -145,3 +145,9 @@ o token vai pelo cabeçalho da requisição
 middlware é uma função que recebe um request, response e chama o next,
 ou seja, caso o usuário esteja validado, chama o next, pra que aplicação siga para o restante das rotas,
 se der erro, ou não chamar a função, next, o sistema para nessa função
+
+
+_____________
+
+yarn add multer - middlware de Upload de arquivo para o express
+yarn add -D @types/multer
