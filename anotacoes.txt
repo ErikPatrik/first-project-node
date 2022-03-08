@@ -151,3 +151,15 @@ _____________
 
 yarn add multer - middlware de Upload de arquivo para o express
 yarn add -D @types/multer
+
+
+_________
+
+Exception Handling
+Lidar com exceções, ou seja, lidar com erros na aplicação
+
+Global Exception Handler: middlware que capta todos os erros da aplicação,
+independente da onde veio (arquivo original), todos os erros vao cair num ponto central
+e a gente pode manipular eles
+
+Pacote para tratar de erros: yarn add express-async-errors
